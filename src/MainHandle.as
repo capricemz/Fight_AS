@@ -24,7 +24,7 @@ package
 			var loaderControl:LoaderControl = LoaderControl.loaderControl();
 			var vector:Vector.<LoaderData> = new Vector.<LoaderData>();
 			var loaderData:LoaderData = new LoaderData();
-			loaderData.url = "../libs/res_system_main.swf";
+			loaderData.url = "../res/res_system_main.swf";
 			loaderData.callBack = function():void
 			{
 				registerAllModules();
