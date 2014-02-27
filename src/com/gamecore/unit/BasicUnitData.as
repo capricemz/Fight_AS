@@ -1,12 +1,12 @@
-package com.gamecore.stuff
+package com.gamecore.unit
 {
 	import flash.geom.Point;
 
 	/**
-	 * 生物数据类
+	 * 单位数据类
 	 * @author Administrator
 	 */	
-	public class BasicStuffData
+	public class BasicUnitData
 	{
 		public var id:int;
 		/**性别*/
@@ -30,7 +30,7 @@ package com.gamecore.stuff
 		/**body数据*/
 		public var data:Vector.<Object>;
 		
-		public function BasicStuffData()
+		public function BasicUnitData()
 		{
 			postion = new Point();
 			data = new Vector.<Object>();

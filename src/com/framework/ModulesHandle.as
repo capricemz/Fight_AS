@@ -3,7 +3,7 @@ package com.framework
 	import com.gamecore.engine.EngineModule;
 	import com.gamecore.plot.PlotModule;
 	import com.gamecore.scene.SceneModule;
-	import com.gamecore.stuff.StuffModule;
+	import com.gamecore.unit.UnitModule;
 	import com.gamecore.time.TimeModule;
 	import com.gamesystem.systeminfoshow.SystemInfoShowModule;
 	import com.gamesystem.systemmain.SystemMainModule;
@@ -22,7 +22,7 @@ package com.framework
 		private var engineModule:EngineModule,
 					timeModule:TimeModule,
 					sceneModule:SceneModule,
-					stuffModule:StuffModule,
+					stuffModule:UnitModule,
 					plotModule:PlotModule;
 
 		public function ModulesHandle()
@@ -34,7 +34,7 @@ package com.framework
 			engineModule = new EngineModule();
 			timeModule = new TimeModule();
 			sceneModule = new SceneModule();
-			stuffModule = new StuffModule();
+			stuffModule = new UnitModule();
 			plotModule = new PlotModule();
 			
 		}
@@ -51,7 +51,7 @@ package com.framework
 			moduleCtrl.registrtModule(ModuleIds.CORE_ENGINE,engineModule);
 			moduleCtrl.registrtModule(ModuleIds.CORE_TIME,timeModule);
 			moduleCtrl.registrtModule(ModuleIds.CORE_SCENE,sceneModule);
-			moduleCtrl.registrtModule(ModuleIds.CORE_STUFF,stuffModule);
+			moduleCtrl.registrtModule(ModuleIds.CORE_UNIT,stuffModule);
 			moduleCtrl.registrtModule(ModuleIds.CORE_PLOT,plotModule);
 		}
 		/**反注册所有的模块*/
@@ -70,7 +70,7 @@ package com.framework
 			timeModule = null;
 			moduleCtrl.removeModule(ModuleIds.CORE_SCENE);
 			sceneModule = null;
-			moduleCtrl.removeModule(ModuleIds.CORE_STUFF);
+			moduleCtrl.removeModule(ModuleIds.CORE_UNIT);
 			stuffModule = null;
 			moduleCtrl.removeModule(ModuleIds.CORE_PLOT);
 			plotModule = null;

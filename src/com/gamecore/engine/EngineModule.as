@@ -9,12 +9,12 @@ package com.gamecore.engine
 	 */	
 	public class EngineModule extends BasicModule
 	{
-
 		/*private var engineHandle:EngineHandle;*/
 		private var box2dEngine:Box2DEngine;
 		
 		override public function handle(msgId:int, msg:*):void
 		{
+			super.handle(msgId,msg);
 			switch (msgId)
 			{
 				/*case MsgIds.CORE_ENGINE_INIT:
@@ -32,19 +32,16 @@ package com.gamecore.engine
 				case MsgIds.CORE_ENGINE_DELETE_STUFF:
 					engineHandle.delOneStuff(msg);
 					break;*/
-				case MsgIds.CORE_ENGINE_INIT:
-					box2dEngine = new Box2DEngine();
-					break;
 				case MsgIds.CORE_ENGINE_START:
 					box2dEngine.startEngine();
 					break;
 				case MsgIds.CORE_ENGINE_STOP:
 					box2dEngine.stopEngine();
 					break;
-				case MsgIds.CORE_ENGINE_ADD_KIND_STUFF:
+				case MsgIds.CORE_ENGINE_ADD_KIND_UNIT:
 					box2dEngine.addKindStuff(msg);
 					break;
-				case MsgIds.CORE_ENGINE_DELETE_KIND_STUFF:
+				case MsgIds.CORE_ENGINE_DELETE_KIND_UNIT:
 					box2dEngine.deleteKindStuff(msg);
 					break;
 				case MsgIds.CORE_ENGINE_CREATE_B2BODY:
@@ -57,6 +54,16 @@ package com.gamecore.engine
 					box2dEngine.mouseJointSwitch(msg);
 					break;
 			}
+		}
+		
+		override protected function init():void
+		{
+			box2dEngine = new Box2DEngine();
+		}
+		
+		override protected function destroy():void
+		{
+			
 		}
 	}
 }

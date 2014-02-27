@@ -55,7 +55,7 @@ package com.gamesystem.systemmain
 			//游戏核心相关模块构建
 			moduleCtrl.callModule(ModuleIds.CORE_SCENE,MsgIds.CORE_SCENE_BUILDING);
 			trace("初始场景构建完成");
-			moduleCtrl.callModule(ModuleIds.CORE_STUFF,MsgIds.CORE_STUFF_BUILDING);
+			moduleCtrl.callModule(ModuleIds.CORE_UNIT,MsgIds.CORE_UNIT_BUILDING);
 			trace("初始生物构建完成");
 			//游戏核心启动
 			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_START);

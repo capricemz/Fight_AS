@@ -12,24 +12,29 @@ package com.gamecore.scene
 	 */	
 	public class SceneModule extends BasicModule
 	{
-		public function SceneModule()
-		{
-			super();
-		}
+		private var model:SceneM,view:SceneV,ctrl:SceneC;
+		
 		override public function handle(msgId:int, msg:*):void
 		{
-			var model:SceneM,view:SceneV,ctrl:SceneC;
+			super.handle(msgId,msg);
 			switch (msgId)
 			{
-				case MsgIds.CORE_SCENE_INIT:
-					model = new SceneM();
-					view = new SceneV(model);
-					ctrl = new SceneC(model);
-					break;
 				case 2:
 					view.show();
 					break;
 			}
+		}
+		
+		override protected function init():void
+		{
+			model = new SceneM();
+			view = new SceneV(model);
+			ctrl = new SceneC(model);
+		}
+		
+		override protected function destroy():void
+		{
+			
 		}
 	}
 }

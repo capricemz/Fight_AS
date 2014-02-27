@@ -1,4 +1,4 @@
-package com.gamecore.stuff
+package com.gamecore.unit
 {
 	import com.framework.ModuleControl;
 	import com.framework.ModuleIds;
@@ -6,13 +6,13 @@ package com.gamecore.stuff
 	import com.gamecore.engine.EngineConsts;
 	
 	/**
-	 * 生物模块处理类
+	 * 单位模块处理类
 	 * @author Administrator
 	 * 
 	 */	
-	public class StuffHandle
+	public class UnitHandle
 	{
-		public function StuffHandle()
+		public function UnitHandle()
 		{
 			
 		}
@@ -21,9 +21,9 @@ package com.gamecore.stuff
 		{
 			var moduleCtrl:ModuleControl = ModuleControl.moduleCtrl();
 			var basicBiology:BasicBiology = new BasicBiology();
-			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_ADD_KIND_STUFF,basicBiology);//将生物传入引擎并获得ID
+			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_ADD_KIND_UNIT,basicBiology);//将生物传入引擎并获得ID
 			
-			var basicStuffData:BasicStuffData = new BasicStuffData();
+			var basicStuffData:BasicUnitData = new BasicUnitData();
 			basicStuffData.sex = 0;
 			basicStuffData.mass = basicStuffData.sex ? 62 : 52;
 			basicStuffData.volume = 1.015*basicStuffData.mass - 4.937;

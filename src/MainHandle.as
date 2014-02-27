@@ -44,17 +44,17 @@ package
 		{
 			var moduleCtrl:ModuleControl = ModuleControl.moduleCtrl();
 			//游戏系统相关模块初始化
-			moduleCtrl.callModule(ModuleIds.SYSTEM_MAIN,MsgIds.SYSTEM_MAIN_INIT);
+			moduleCtrl.callModule(ModuleIds.SYSTEM_MAIN,MsgIds.MODULE_INIT);
 			//游戏核心相关模块初始化
-			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_INIT);
+			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.MODULE_INIT);
 			trace("引擎模块初始化完成");
-			moduleCtrl.callModule(ModuleIds.CORE_TIME,MsgIds.CORE_TIME_INIT);
+			moduleCtrl.callModule(ModuleIds.CORE_TIME,MsgIds.MODULE_INIT);
 			trace("时间模块初始化完成");
-			moduleCtrl.callModule(ModuleIds.CORE_SCENE,MsgIds.CORE_SCENE_INIT);
+			moduleCtrl.callModule(ModuleIds.CORE_SCENE,MsgIds.MODULE_INIT);
 			trace("场景模块初始化完成");
-			moduleCtrl.callModule(ModuleIds.CORE_STUFF,MsgIds.CORE_STUFF_INIT);
+			moduleCtrl.callModule(ModuleIds.CORE_UNIT,MsgIds.MODULE_INIT);
 			trace("生物模块初始化完成");
-			moduleCtrl.callModule(ModuleIds.CORE_PLOT,MsgIds.CORE_PLOT_INIT);
+			moduleCtrl.callModule(ModuleIds.CORE_PLOT,MsgIds.MODULE_INIT);
 			trace("剧情模块初始化完成");
 		}
 		/**显示系统系统主模块界面*/

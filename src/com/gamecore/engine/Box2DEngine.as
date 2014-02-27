@@ -3,7 +3,7 @@ package com.gamecore.engine
 	import Box2D.Dynamics.b2Body;
 	import Box2D.Dynamics.b2Fixture;
 	
-	import com.gamecore.engine.I_Fs.IStuff;
+	import com.gamecore.engine.I_Fs.IUnit;
 	import com.util.layers.Layers;
 	
 	import flash.events.MouseEvent;
@@ -20,7 +20,7 @@ package com.gamecore.engine
 		/**刷新器*/
 		private var timer:Timer;
 		/**生物字典*/
-		private var stuffs:Vector.<IStuff>;
+		private var stuffs:Vector.<IUnit>;
 		
 		public function Box2DEngine()
 		{
@@ -34,7 +34,7 @@ package com.gamecore.engine
 			timer = new Timer(EngineConsts.ENGINE_DELAY);
 			timer.addEventListener(TimerEvent.TIMER,handleTimer);
 			
-			stuffs = new Vector.<IStuff>();
+			stuffs = new Vector.<IUnit>();
 		}
 		/**更新处理*/
 		protected function handleTimer(event:TimerEvent):void
@@ -55,7 +55,7 @@ package com.gamecore.engine
 				trace("惯性："+_b.GetInertia());
 				trace("---------------------------------");
 			}
-			var stuff:IStuff;
+			var stuff:IUnit;
 			for each (stuff in stuffs)
 			{
 				stuff.update();//刷新
@@ -123,7 +123,7 @@ package com.gamecore.engine
 			timer.stop();
 		}
 		/**添加一种生物*/
-		public function addKindStuff(stuff:IStuff):void
+		public function addKindStuff(stuff:IUnit):void
 		{
 			stuff.id = stuffs.length+1;
 			stuffs.push(stuff);

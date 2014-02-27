@@ -1,12 +1,12 @@
 package com.gamecore.engine.I_Fs
 {
 	/**
-	 * 
+	 * 单位接口
 	 * @author Administrator
 	 */	
-	public interface IStuff
+	public interface IUnit
 	{
-		/**事物更新*/
+		/**单位更新*/
 		function update():void;
 		function set id(id:int):void;
 		function get id():int;

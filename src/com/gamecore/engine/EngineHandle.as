@@ -1,5 +1,7 @@
 package com.gamecore.engine
 {
+	import com.gamecore.engine.I_Fs.IUnit;
+	
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 
@@ -10,21 +12,21 @@ package com.gamecore.engine
 	public class EngineHandle
 	{
 		private var timer:Timer;
-		private var stuffs:Vector.<IStuff>;
+		private var units:Vector.<IUnit>;
 		
 		public function EngineHandle()
 		{
 			timer = new Timer(EngineConsts.ENGINE_DELAY);
 			timer.addEventListener(TimerEvent.TIMER,onTimer);
-			stuffs = new Vector.<IStuff>();
+			units = new Vector.<IUnit>();
 		}
 		/**引擎刷新处理*/		
 		protected function onTimer(event:TimerEvent):void
 		{
-			var stuff:IStuff
-			for each(stuff in stuffs)
+			var unit:IUnit
+			for each(unit in units)
 			{
-				stuff.update();
+				unit.update();
 			}
 		}
 		/**启动*/
@@ -38,16 +40,16 @@ package com.gamecore.engine
 			timer.stop();
 		}
 		/**添加一个生物*/
-		public function addOneStuff(stuff:IStuff):void
+		public function addOneStuff(unit:IUnit):void
 		{
-			stuff.id = stuffs.length;
-			stuffs.push(stuff);
-			trace("添加了一个生物，生物ID:"+stuff.id);
+			unit.id = units.length;
+			units.push(unit);
+			trace("添加了一个生物，生物ID:"+unit.id);
 		}
 		/**删除一个生物*/
 		public function delOneStuff(id:int):void
 		{
-			stuffs.splice(id,1);
+			units.splice(id,1);
 		}
 	}
 }

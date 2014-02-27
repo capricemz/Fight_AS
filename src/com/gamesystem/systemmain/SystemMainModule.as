@@ -13,21 +13,26 @@ package com.gamesystem.systemmain
 		
 		override public function handle(msgId:int, msg:*):void
 		{
+			super.handle(msgId,msg);
 			switch (msgId)
 			{
-				case MsgIds.SYSTEM_MAIN_INIT:
-					
-					break;
 				case MsgIds.SYSTEM_MAIN_SHOW:
-					if(!systemMainHandle)
-						systemMainHandle = new SystemMainHandle();
 					systemMainHandle.show();
 					break;
 				case MsgIds.SYSTEM_MAIN_HIDE:
 					systemMainHandle.hide();
-					systemMainHandle = null;
 					break;
 			}
+		}
+		
+		override protected function init():void
+		{
+			systemMainHandle = new SystemMainHandle();
+		}
+		
+		override protected function destroy():void
+		{
+			systemMainHandle = null;
 		}
 	}
 }

@@ -12,7 +12,7 @@ package com.framework
 		/**核心引擎模块id*/public static const CORE_ENGINE:int = 21;
 		/**核心时间模块id*/public static const CORE_TIME:int = 22;
 		/**核心场景模块id*/public static const CORE_SCENE:int = 23;
-		/**核心生物模块id*/public static const CORE_STUFF:int = 24;
+		/**核心单位模块id*/public static const CORE_UNIT:int = 24;
 		/**核心剧情模块id*/public static const CORE_PLOT:int = 25;
 		
 	}
