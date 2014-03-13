@@ -42,19 +42,19 @@ package com.util.load
 			init();
 		}
 		
-		private var uRLLoader:URLLoader,uRLRequest:URLRequest,loader:Loader,loaderContext:LoaderContext;
+		private var urlLoader:URLLoader,urlRequest:URLRequest,loader:Loader,loaderContext:LoaderContext;
 		private var loaderDatas:Vector.<LoaderData>,currentLoaderData:LoaderData;
 
 		private function init():void
 		{
-			uRLLoader = new URLLoader();
-			uRLLoader.addEventListener(IOErrorEvent.IO_ERROR,onError);
-			uRLLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR,onError);
-			uRLLoader.addEventListener(HTTPStatusEvent.HTTP_RESPONSE_STATUS,onHttpResponseStatus);
-			uRLLoader.addEventListener(ProgressEvent.PROGRESS,onProgress);
-			uRLLoader.addEventListener(Event.COMPLETE,onComplete);
+			urlLoader = new URLLoader();
+			urlLoader.addEventListener(IOErrorEvent.IO_ERROR,onError);
+			urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR,onError);
+			urlLoader.addEventListener(HTTPStatusEvent.HTTP_RESPONSE_STATUS,onHttpResponseStatus);
+			urlLoader.addEventListener(ProgressEvent.PROGRESS,onProgress);
+			urlLoader.addEventListener(Event.COMPLETE,onComplete);
 			
-			uRLRequest = new URLRequest();
+			urlRequest = new URLRequest();
 			
 			loader = new Loader();
 			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,onError);
@@ -101,11 +101,11 @@ package com.util.load
 		private function doLoad():void
 		{
 			currentLoaderData = loaderDatas.shift();
-			uRLRequest.url = currentLoaderData.url;
+			urlRequest.url = currentLoaderData.url;
 			if(currentLoaderData.type)
-				loader.load(uRLRequest,loaderContext);
+				loader.load(urlRequest,loaderContext);
 			else
-				uRLLoader.load(uRLRequest);
+				urlLoader.load(urlRequest);
 		}
 	}
 }

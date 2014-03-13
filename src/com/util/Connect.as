@@ -1,5 +1,7 @@
 package com.util
 {
+	import com.framework.ModuleControl;
+	
 	import flash.errors.IOError;
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
@@ -9,8 +11,6 @@ package com.util
 	import flash.net.ObjectEncoding;
 	import flash.net.Socket;
 	import flash.utils.ByteArray;
-	
-	import com.framework.ModuleControl;
 	
 	/**
 	 * 套接字类
@@ -76,7 +76,10 @@ package com.util
 			}
 			if(length>0 && socket.bytesAvailable>=length)//当消息长度大于0且socket缓存区域的内容大于协议长度，即消息完全收到时
 			{
-				byteArray.clear();
+				if(byteArray)
+					byteArray.clear();
+				else
+					byteArray = new ByteArray();
 				socket.readBytes(byteArray,0,length);
 				var moduleId:int = byteArray.readInt();//模块id
 				var msgId:int = byteArray.readInt();//消息id

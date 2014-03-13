@@ -3,6 +3,7 @@ package com.gamesystem.systemmain
 	import com.framework.ModuleControl;
 	import com.framework.ModuleIds;
 	import com.framework.MsgIds;
+	import com.gamecore.unit.kindunit.UnitKindTypes;
 	import com.util.layers.Layers;
 	
 	import flash.events.MouseEvent;
@@ -55,8 +56,10 @@ package com.gamesystem.systemmain
 			//游戏核心相关模块构建
 			moduleCtrl.callModule(ModuleIds.CORE_SCENE,MsgIds.CORE_SCENE_BUILDING);
 			trace("初始场景构建完成");
-			moduleCtrl.callModule(ModuleIds.CORE_UNIT,MsgIds.CORE_UNIT_BUILDING);
+			moduleCtrl.callModule(ModuleIds.CORE_UNIT,MsgIds.CORE_UNIT_ADD_KIND_UNIT,UnitKindTypes.BASIC_UNIT);
 			trace("初始生物构建完成");
+			moduleCtrl.callModule(ModuleIds.CORE_UNIT,MsgIds.CORE_UNIT_ADD_ONE_UNIT,UnitKindTypes.BASIC_UNIT);
+			moduleCtrl.callModule(ModuleIds.CORE_UNIT,MsgIds.CORE_UNIT_ADD_ONE_UNIT,UnitKindTypes.BASIC_UNIT);
 			//游戏核心启动
 			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_START);
 			trace("游戏启动完成");

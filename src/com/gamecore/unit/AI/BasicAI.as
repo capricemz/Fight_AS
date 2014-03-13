@@ -1,4 +1,4 @@
-package com.gamecore.unit
+package com.gamecore.unit.AI
 {
 	/**
 	 * 基础AI类

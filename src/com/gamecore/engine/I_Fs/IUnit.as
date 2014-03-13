@@ -10,5 +10,7 @@ package com.gamecore.engine.I_Fs
 		function update():void;
 		function set id(id:int):void;
 		function get id():int;
+		function addOneUnit(unitata:*):void;
+		function deleteOneUnit(id:int):void;
 	}
 }

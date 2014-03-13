@@ -1,4 +1,4 @@
-package com.gamecore.unit
+package com.gamecore.unit.action
 {
 	/**
 	 * 基础动作类

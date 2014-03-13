@@ -31,8 +31,11 @@ package com.framework
 		public static const CORE_SCENE_RELEASE:int = 23002;
 		
 		//核心单位模块
-		public static const CORE_UNIT_BUILDING:int = 24001;
-		public static const CORE_UNIT_RELEASE:int = 24002;
+		public static const CORE_UNIT_ADD_KIND_UNIT:int = 24001;
+		public static const CORE_UNIT_DELETE_KIND_UNIT:int = 24002;
+		public static const CORE_UNIT_ADD_ONE_UNIT:int = 24003;
+		public static const CORE_UNIT_DELETE_ONE_UNIT:int = 24004;
+		public static const CORE_UNIT_RELEASE:int = 24005;
 		
 		//核心剧情模块
 	}

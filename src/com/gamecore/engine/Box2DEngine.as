@@ -19,8 +19,8 @@ package com.gamecore.engine
 		private var theBox2D:InitBox2D;
 		/**刷新器*/
 		private var timer:Timer;
-		/**生物字典*/
-		private var stuffs:Vector.<IUnit>;
+		/**单位字典*/
+		private var units:Vector.<IUnit>;
 		
 		public function Box2DEngine()
 		{
@@ -34,7 +34,7 @@ package com.gamecore.engine
 			timer = new Timer(EngineConsts.ENGINE_DELAY);
 			timer.addEventListener(TimerEvent.TIMER,handleTimer);
 			
-			stuffs = new Vector.<IUnit>();
+			units = new Vector.<IUnit>();
 		}
 		/**更新处理*/
 		protected function handleTimer(event:TimerEvent):void
@@ -55,10 +55,10 @@ package com.gamecore.engine
 				trace("惯性："+_b.GetInertia());
 				trace("---------------------------------");
 			}
-			var stuff:IUnit;
-			for each (stuff in stuffs)
+			var unit:IUnit;
+			for each (unit in units)
 			{
-				stuff.update();//刷新
+				unit.update();//刷新
 			}
 		}
 		private var hasMouseJoint:Boolean;
@@ -122,15 +122,15 @@ package com.gamecore.engine
 		{
 			timer.stop();
 		}
-		/**添加一种生物*/
-		public function addKindStuff(stuff:IUnit):void
+		/**添加一种单位*/
+		public function addKindUnit(unit:IUnit):void
 		{
-			stuff.id = stuffs.length+1;
-			stuffs.push(stuff);
+			unit.id = units.length+1;
+			units.push(unit);
 		}
-		public function deleteKindStuff(id:int):void
+		public function deleteKindUnit(id:int):void
 		{
-			stuffs.splice(id,1);
+			units.splice(id,1);
 		}
 		/**创建b2Body*/
 		public function createB2Body(userData:Object):void

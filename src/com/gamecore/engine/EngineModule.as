@@ -39,10 +39,10 @@ package com.gamecore.engine
 					box2dEngine.stopEngine();
 					break;
 				case MsgIds.CORE_ENGINE_ADD_KIND_UNIT:
-					box2dEngine.addKindStuff(msg);
+					box2dEngine.addKindUnit(msg);
 					break;
 				case MsgIds.CORE_ENGINE_DELETE_KIND_UNIT:
-					box2dEngine.deleteKindStuff(msg);
+					box2dEngine.deleteKindUnit(msg);
 					break;
 				case MsgIds.CORE_ENGINE_CREATE_B2BODY:
 					box2dEngine.createB2Body(msg);

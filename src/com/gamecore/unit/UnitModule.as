@@ -4,8 +4,6 @@ package com.gamecore.unit
 	import com.framework.IModule;
 	import com.framework.MsgIds;
 	
-	import flash.utils.ByteArray;
-	
 	/**
 	 * 单位模块接口类
 	 * @author mz
@@ -19,8 +17,17 @@ package com.gamecore.unit
 			super.handle(msgId,msg);
 			switch (msgId)
 			{
-				case MsgIds.CORE_UNIT_BUILDING:
-					unitHandle.building();
+				case MsgIds.CORE_UNIT_ADD_KIND_UNIT:
+					unitHandle.addKindUnit(msg);
+					break;
+				case MsgIds.CORE_UNIT_DELETE_KIND_UNIT:
+					unitHandle.deleteKindUnit(msg);
+					break;
+				case MsgIds.CORE_UNIT_ADD_ONE_UNIT:
+					unitHandle.addOneUnit(msg);
+					break;
+				case MsgIds.CORE_UNIT_DELETE_ONE_UNIT:
+					unitHandle.deleteOneUnit(msg[0],msg[1]);
 					break;
 			}
 		}
