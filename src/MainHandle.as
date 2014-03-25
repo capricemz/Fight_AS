@@ -22,7 +22,6 @@ package
 		{
 			//加载游戏资源
 			var loaderControl:LoaderControl = LoaderControl.loaderControl();
-			var vector:Vector.<LoaderData> = new Vector.<LoaderData>();
 			var loaderData:LoaderData = new LoaderData();
 			loaderData.url = "../res/res_system_main.swf";
 			loaderData.callBack = function():void
@@ -31,6 +30,7 @@ package
 				initAllModules();
 				showSystemMainUI();
 			};
+			var vector:Vector.<LoaderData> = new Vector.<LoaderData>();
 			vector.push(loaderData);
 			loaderControl.load(vector);
 		}

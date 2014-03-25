@@ -23,6 +23,8 @@ package com.framework
 		public static const CORE_ENGINE_CREATE_B2BODY:int = 21005;
 		public static const CORE_ENGINE_DESTROY_B2BODY:int = 21006;
 		public static const CORE_ENGINE_MOUSE_JOINT_SWITCH:int = 21007;
+		public static const CORE_ENGINE_SET_LINEAR_VELOCITY:int = 21008;
+		public static const CORE_ENGINE_SET_ANGLE:int = 21009;
 		
 		//核心时间模块
 		

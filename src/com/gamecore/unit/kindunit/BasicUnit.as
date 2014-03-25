@@ -14,14 +14,7 @@ package com.gamecore.unit.kindunit
 	{
 		/**单位种族id*/
 		protected var _id:int;
-		public function set id(id:int):void
-		{
-			this._id = id;
-		}
-		public function get id():int
-		{
-			return _id;
-		}
+		protected var _bodyIds:Vector.<int>;
 		/**单位种族类型*/
 		public var type:int;
 		/**个体集合*/
@@ -31,6 +24,7 @@ package com.gamecore.unit.kindunit
 		{
 			this.type = type;
 			units = new Vector.<BasicUnitData>();
+			_bodyIds = new Vector.<int>();
 		}
 		/**添加一个单位*/
 		public function addOneUnit(unitData:*):void
@@ -45,6 +39,7 @@ package com.gamecore.unit.kindunit
 			{
 				data = basicUnitData.data[i];
 				data.id = basicUnitData.id+i+1;//设置某个单位的某个body的id
+				_bodyIds.push(data.id);
 				moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_CREATE_B2BODY,data);
 			}
 		}
@@ -57,6 +52,18 @@ package com.gamecore.unit.kindunit
 		public function update():void
 		{
 			
+		}
+		public function set kindId(id:int):void
+		{
+			this._id = id;
+		}
+		public function get kindId():int
+		{
+			return _id;
+		}
+		public function get bodyIds():Vector.<int>
+		{
+			return _bodyIds;
 		}
 	}
 }

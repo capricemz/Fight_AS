@@ -27,8 +27,8 @@ package com.gamecore.unit.kindunit
 		public function BasicOgnzm(type:int)
 		{
 			super(type);
-			basicAI = new BasicAI();
-			basicAction = new BasicAction();
+			basicAI = new BasicAI(this);
+			basicAction = new BasicAction(this);
 		}
 		
 		override public function update():void
@@ -37,7 +37,7 @@ package com.gamecore.unit.kindunit
 			for each (basicUnitData in units)		
 			{
 				basicAI.think();
-				basicAction.execute();
+				basicAction.execute(basicAI.towards,basicAI.status);
 				/*trace("刷新一个生物，生物ID:"+basicStuff.data[0].id);*/
 			}
 		}

@@ -42,9 +42,9 @@ package com.gamecore.engine
 		/**添加一个生物*/
 		public function addOneStuff(unit:IUnit):void
 		{
-			unit.id = units.length;
+			unit.kindId = units.length;
 			units.push(unit);
-			trace("添加了一个生物，生物ID:"+unit.id);
+			trace("添加了一个生物，生物ID:"+unit.kindId);
 		}
 		/**删除一个生物*/
 		public function delOneStuff(id:int):void

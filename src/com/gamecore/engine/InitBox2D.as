@@ -1,9 +1,20 @@
 package com.gamecore.engine
 {
+	import com.gamecore.engine.I_Fs.IUserData;
+	
+	import flash.display.Sprite;
+	import flash.geom.Point;
+	import flash.utils.Dictionary;
+	
 	import Box2D.Collision.Shapes.b2CircleShape;
 	import Box2D.Collision.Shapes.b2PolygonShape;
 	import Box2D.Collision.Shapes.b2Shape;
 	import Box2D.Common.Math.b2Vec2;
+	import Box2D.Dynamics.b2Body;
+	import Box2D.Dynamics.b2BodyDef;
+	import Box2D.Dynamics.b2DebugDraw;
+	import Box2D.Dynamics.b2FixtureDef;
+	import Box2D.Dynamics.b2World;
 	import Box2D.Dynamics.Joints.b2DistanceJoint;
 	import Box2D.Dynamics.Joints.b2DistanceJointDef;
 	import Box2D.Dynamics.Joints.b2Joint;
@@ -11,17 +22,6 @@ package com.gamecore.engine
 	import Box2D.Dynamics.Joints.b2MouseJointDef;
 	import Box2D.Dynamics.Joints.b2RevoluteJoint;
 	import Box2D.Dynamics.Joints.b2RevoluteJointDef;
-	import Box2D.Dynamics.b2Body;
-	import Box2D.Dynamics.b2BodyDef;
-	import Box2D.Dynamics.b2DebugDraw;
-	import Box2D.Dynamics.b2FixtureDef;
-	import Box2D.Dynamics.b2World;
-	
-	import com.gamecore.engine.I_Fs.IUserData;
-	
-	import flash.display.Sprite;
-	import flash.geom.Point;
-	import flash.utils.Dictionary;
 
 	/**
 	 * Box2D世界及其他所有对象构造类
@@ -83,7 +83,7 @@ package com.gamecore.engine
 			//填充透明度
 			debugDraw.SetFillAlpha(0.5);
 			//设置显示对象
-			debugDraw.SetFlags(b2DebugDraw.e_shapeBit|b2DebugDraw.e_jointBit);
+			debugDraw.SetFlags(b2DebugDraw.e_shapeBit|b2DebugDraw.e_jointBit|b2DebugDraw.e_centerOfMassBit);
 			//物理世界缩放
 			debugDraw.SetDrawScale(EngineConsts.P2M);
 			_world.SetDebugDraw(debugDraw);

@@ -53,6 +53,12 @@ package com.gamecore.engine
 				case MsgIds.CORE_ENGINE_MOUSE_JOINT_SWITCH:
 					box2dEngine.mouseJointSwitch(msg);
 					break;
+				case MsgIds.CORE_ENGINE_SET_ANGLE:
+					box2dEngine.SetAngle(msg);
+					break;
+				case MsgIds.CORE_ENGINE_SET_LINEAR_VELOCITY:
+					box2dEngine.SetLinearVelocity(msg);
+					break;
 			}
 		}
 		

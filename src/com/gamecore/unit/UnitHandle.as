@@ -47,7 +47,7 @@ package com.gamecore.unit
 		{
 			var unit:IUnit = _kindUnits[type];
 			var moduleCtrl:ModuleControl = ModuleControl.moduleCtrl();
-			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_DELETE_KIND_UNIT,unit.id);
+			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_DELETE_KIND_UNIT,unit.kindId);
 		}
 		/**添加一个单位*/
 		public function addOneUnit(type:int):void
@@ -58,7 +58,7 @@ package com.gamecore.unit
 			basicUnitData.volume = 1.015*basicUnitData.mass - 4.937;
 			basicUnitData.barycenterOffset = 0;
 			basicUnitData.power = 250;
-			basicUnitData.data.push({type:0,x:60,y:60,shapeType:0,shapeWidth:EngineConsts.P2M*.5,shapeHeight:EngineConsts.P2M*.1,density:50});
+			basicUnitData.data.push({type:0,x:400,y:300,shapeType:0,shapeWidth:EngineConsts.P2M*.1,shapeHeight:EngineConsts.P2M*.5,density:50});
 			
 			(_kindUnits[type] as IUnit).addOneUnit(basicUnitData);
 		}
