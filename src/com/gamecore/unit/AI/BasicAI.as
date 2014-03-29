@@ -27,7 +27,7 @@ package com.gamecore.unit.AI
 			var crntThinkTime:int = getTimer();
 			if(crntThinkTime - lastThinkTime > thinkIntv)
 			{
-				_towards = (Math.random()*2 - 1)*Math.PI;
+				/*_towards = (Math.random()*2 - 1)*Math.PI;*/
 				_status = Math.random()*UnitConsts.NUM_TOTAL_STATUS;
 				trace("朝向："+_towards+"\n状态："+_status);
 				lastThinkTime = crntThinkTime;
