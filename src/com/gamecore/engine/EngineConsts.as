@@ -10,7 +10,7 @@ package com.gamecore.engine
 		public static const ENGINE_DELAY:Number = 33,velocityInterations:int = 10,positionIterations:int = 10;;
 		public static const isDebugDrawShow:Boolean = true;
 		
-		public static const P2M:int = 50;
+		public static const P2M:int = 10;
 		
 		public static const categotybits_1:uint = 1<<0;
 		public static const categotybits_2:uint = 1<<1;

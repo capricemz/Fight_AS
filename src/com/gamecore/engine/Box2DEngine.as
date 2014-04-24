@@ -3,6 +3,7 @@ package com.gamecore.engine
 	import com.gamecore.engine.I_Fs.IUnit;
 	import com.util.layers.Layers;
 	
+	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
@@ -50,16 +51,23 @@ package com.gamecore.engine
 				var _b:b2Body = b;
 				b = b.GetNext();
 				_b;//刷新摩擦力
-				/*trace("---------------------------------");
+				trace("---------------------------------");
 				trace("线速度："+_b.GetLinearVelocity().Length());
 				trace("角速度："+_b.GetAngularVelocity());
-				trace("惯性："+_b.GetInertia());
-				trace("---------------------------------");*/
+				trace("---------------------------------");
 			}
 			var unit:IUnit;
 			for each (unit in units)
 			{
 				unit.update();//刷新
+			}
+			//刷新镜头
+			if(EngineConsts.isDebugDrawShow)
+			{
+				var getDebugDraw:Sprite = theBox2D.getDebugDraw();
+				var getb2BodyInDic:b2Body = theBox2D.getb2BodyInDic(units[0].bodyIds[0]);
+				getDebugDraw.x = getDebugDraw.stage.stageWidth/2 - getb2BodyInDic.GetPosition().x*EngineConsts.P2M;
+				getDebugDraw.y = getDebugDraw.stage.stageHeight/2 - getb2BodyInDic.GetPosition().y*EngineConsts.P2M;
 			}
 		}
 		
@@ -170,6 +178,19 @@ package com.gamecore.engine
 			var body:b2Body = theBox2D.getb2BodyInDic(msg[0]);
 			/*body.SetAwake(true);*/
 			body.SetAngle(msg[1]);
+		}
+		/**
+		 * 设置刚体受力
+		 * @param msg 0:id,1:力
+		 */		
+		public function ApplyForce(msg:Array):void
+		{
+			var body:b2Body = theBox2D.getb2BodyInDic(msg[0]);
+			body.SetAwake(true);
+			var angle:Number = body.GetAngle();
+			var cos:Number = Math.cos(angle);
+			var sin:Number = Math.sin(angle);
+			body.ApplyForce(new b2Vec2(cos*msg[1],sin*msg[1]),body.GetWorldCenter());
 		}
 	}
 }

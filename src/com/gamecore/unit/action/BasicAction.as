@@ -26,11 +26,17 @@ package com.gamecore.unit.action
 			moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_SET_ANGLE,[_unit.bodyIds[0],towards]);
 			switch(status)
 			{
-				case UnitConsts.STATUS_MOVE:
+				/*case UnitConsts.STATUS_MOVE:
 					moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_SET_LINEAR_VELOCITY,[_unit.bodyIds[0],.001]);
 					break;
 				case UnitConsts.STATUS_STAY:
 					moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_SET_LINEAR_VELOCITY,[_unit.bodyIds[0],0]);
+					break;*/
+				case UnitConsts.STATUS_MOVE:
+					moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_APPLY_FORCE,[_unit.bodyIds[0],.001]);
+					break;
+				case UnitConsts.STATUS_STAY:
+					moduleCtrl.callModule(ModuleIds.CORE_ENGINE,MsgIds.CORE_ENGINE_APPLY_FORCE,[_unit.bodyIds[0],-.001]);
 					break;
 			}
 		}
